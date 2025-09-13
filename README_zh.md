@@ -2,6 +2,18 @@
 
 ip2region-gen是离线IP地址定位库和IP定位数据管理框架[ip2region](https://ip2region.net)在`Nodejs`下的一个离线IP地址定位库和命令行工具。既可以集成到项目中，也可以作为命令行工具使用。
 
+<p>
+    <a target="_blank" href="https://github.com/semantic-release/semantic-release">
+        <img src="https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release" alt="semantic-release" />
+    </a>
+    <a target="_blank" href="https://github.com/lzjyzq2/ip2region-gen/releases">
+        <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/lzjyzq2/ip2region-gen">
+    </a>
+    <a target="_blank" href="https://github.com/lzjyzq2/ip2region-gen/blob/dev/LICENSE">
+        <img alt="GitHub License" src="https://img.shields.io/github/license/lzjyzq2/ip2region-gen">
+    </a>
+</p>
+
 ## Language: 中文 | [English](README.md)
 
 ## 目录

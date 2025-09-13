@@ -2,6 +2,18 @@
 
 ip2region-gen is an offline IP address location library and IP location data management framework for Node.js, based on [ip2region](https://ip2region.net). It can be used as both a library integrated into your project and as a command-line tool.
 
+<p>
+    <a target="_blank" href="https://github.com/semantic-release/semantic-release">
+        <img src="https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release" alt="semantic-release" />
+    </a>
+    <a target="_blank" href="https://github.com/lzjyzq2/ip2region-gen/releases">
+        <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/lzjyzq2/ip2region-gen">
+    </a>
+    <a target="_blank" href="https://github.com/lzjyzq2/ip2region-gen/blob/dev/LICENSE">
+        <img alt="GitHub License" src="https://img.shields.io/github/license/lzjyzq2/ip2region-gen">
+    </a>
+</p>
+
 ## Language: English | [中文](README_zh.md)
 
 ## Contents
