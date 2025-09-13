@@ -1,0 +1,60 @@
+{
+  "name": "ip2region-gen",
+  "version": "1.0.0",
+  "description": "ip2region-gen is an offline IP address location library and IP location data management framework for Node.js",
+  "license": "Apache-2.0 ",
+  "author": "lzjyzq2",
+  "type": "module",
+  "main": "lib/index.js",
+  "bin": {
+    "ip2region-gen": "lib/cli.js"
+  },
+  "scripts": {
+    "start": "tsx ./example/example.ts",
+    "build": "rimraf lib && tsc",
+    "clean": "rimraf lib",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "vitest",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "husky",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-angular": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/node": "^24.1.0",
+    "cz-git": "^1.12.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.7",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/lzjyzq2/ip2region-gen/issues"
+  },
+  "homepage": "https://github.com/lzjyzq2/ip2region-gen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lzjyzq2/ip2region-gen.git"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}

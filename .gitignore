@@ -1,0 +1,5 @@
+node_modules
+lib
+data/qqwry_output.txt
+data/ip2region.test.txt
+data/ip2region.xdb
