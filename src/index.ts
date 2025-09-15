@@ -10,6 +10,7 @@ import { new_maker } from './maker.js';
 import { parse_qqwry } from './parse_qqwry.js';
 import { convert_region } from './convert_region.js';
 import { Vector_Index_Policy } from './vector.js';
+export * from './logger.js';
 
 export {
   Vector_Index_Policy,

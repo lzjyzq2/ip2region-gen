@@ -1,6 +1,7 @@
 import { new_maker } from './maker.js';
 import { Vector_Index_Policy, index_policy_from_string } from './vector.js';
 import { isMainModule } from './util.js';
+import { enableLogger, logger } from './logger.js';
 
 export async function gen_db(src_file: string = '', dst_file: string = '', index_policy: number = Vector_Index_Policy) {
   let start_time = Date.now();
@@ -8,10 +9,11 @@ export async function gen_db(src_file: string = '', dst_file: string = '', index
   await maker.gen();
 
   let elapsed = Date.now() - start_time;
-  console.log(`Done, elapsed: ${Math.floor(elapsed / 60000)}m${Math.floor((elapsed % 60000) / 1000)}s`);
+  logger.info(`Done, elapsed: ${Math.floor(elapsed / 60000)}m${Math.floor((elapsed % 60000) / 1000)}s`);
 }
 
 export async function main() {
+  enableLogger(true);
   let src_file = '',
     dst_file = '';
   let index_policy = Vector_Index_Policy;

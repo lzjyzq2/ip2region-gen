@@ -1,5 +1,5 @@
 import trimer from './ip2region.config';
-import { convert_region, parse_qqwry, new_maker, newWithFileOnly, Vector_Index_Policy } from '../src/index';
+import { convert_region, parse_qqwry, new_maker, newWithFileOnly, Vector_Index_Policy, enableLogger } from '../src/index';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -30,6 +30,7 @@ async function main() {
   console.log('开始转换ip2region.txt...');
   await convert();
   console.log('开始生成ip2region.xdb...');
+  enableLogger(true)
   await gen_db();
 
   // test search

@@ -1,3 +1,6 @@
+import { logger } from './logger.js';
+
+
 export const Vector_Index_Policy = 1;
 export const BTree_Index_Policy = 2;
 
@@ -8,7 +11,7 @@ export function index_policy_from_string(s: string): number {
   } else if (sl === 'btree') {
     return BTree_Index_Policy;
   } else {
-    console.log(`invalid policy \`${s}\`, used default vector index`);
+    logger.info(`invalid policy \`${s}\`, used default vector index`);
     return Vector_Index_Policy;
   }
 }

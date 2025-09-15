@@ -1,9 +1,10 @@
 import fs, { createReadStream } from 'fs';
-import { Vector_Index_Policy, BTree_Index_Policy, VectorIndexBlock, Segment_Index_Block_Size } from './vector.js';
+import { Vector_Index_Policy, VectorIndexBlock, Segment_Index_Block_Size } from './vector.js';
 import { check_ip, splitN } from './util.js';
 import { Segment } from './segment.js';
 import { createInterface } from 'readline';
 import { once } from 'events';
+import { logger } from './logger.js';
 
 export const Version_No = 2;
 export const Header_Info_Length = 256;
@@ -85,7 +86,7 @@ class Maker {
   }
 
   async load_segments(): Promise<void> {
-    console.info('try to load the segments ... ');
+    logger.info('try to load the segments ... ');
     let s_tm = Date.now();
 
     let last: Segment | null = null;
@@ -120,7 +121,7 @@ class Maker {
     await once(rl, 'close');
     // 处理最后一段
     if (last) this.segments.push(last);
-    console.info(
+    logger.info(
       `all segments loaded (after merge), length: ${this.segments.length}, elapsed: ${(Date.now() - s_tm) / 1000}`,
     );
   }
@@ -142,7 +143,7 @@ class Maker {
     if (this.segments.length < 1) throw new Error('empty segment list');
     let pos = Header_Info_Length + Vector_Index_Length;
 
-    console.info('try to write the data block ... ');
+    logger.info('try to write the data block ... ');
     for (const s of this.segments) {
       if (s.region in this.region_pool) {
         continue;

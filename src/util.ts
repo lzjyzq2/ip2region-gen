@@ -2,6 +2,7 @@ import path from 'path';
 import os from 'os';
 import { pathToFileURL } from 'url';
 import fs from 'fs/promises';
+import { logger } from './logger.js';
 
 const _SHIFT_INDEX = [24, 16, 8, 0];
 
@@ -94,7 +95,7 @@ export async function getConfigHandler(inTxtPath: string, ip2regionConfigPath: s
       const configModule = await import(importUrl);
       handler = configModule.default || configModule.handler;
     } catch (err) {
-      console.error(`无法加载处理配置文件: ${ip2regionConfigPath}`, err);
+      logger.error(`无法加载处理配置文件: ${ip2regionConfigPath}`, err);
       process.exit(1);
     }
   }

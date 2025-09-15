@@ -4,6 +4,7 @@ import { main as parse_qqwry_main, parse_qqwry } from './parse_qqwry.js';
 import { main as convert_region_main, convert_region } from './convert_region.js';
 import { parseConvertArgs, printConvertHelp, parseSearchArgs, printSearchHelp, getConfigHandler } from './util.js';
 import { newWithFileOnly } from './searcher.js';
+import { enableLogger, logger } from './logger.js';
 
 function print_help() {
   console.log('ip2region xdb nodejs maker');
@@ -17,6 +18,7 @@ function print_help() {
 }
 
 async function main() {
+  enableLogger(true)
   if (process.argv.length < 3) {
     print_help();
     return;
@@ -44,10 +46,10 @@ async function main() {
         return gen_db(ip2RegionTxtFile, xdbFile);
       })
       .then(() => {
-        console.log('xdb file generated done.');
+        logger.info('xdb file generated done.');
       })
       .catch((err: any) => {
-        console.log('failed to generate xdb file, err:' + err);
+        logger.error('failed to generate xdb file, err:' + err);
         process.exit(1);
       });
   } else if (cmd === 'search') {
@@ -63,21 +65,21 @@ async function main() {
         .search(ip)
         .then((result) => {
           if (result.region) {
-            console.log(`IP: ${ip}`);
-            console.log(`Region: ${result.region}`);
-            console.log(`IO count: ${result.ioCount}`);
-            console.log(`Time cost: ${result.took} μs`);
+            logger.info(`IP: ${ip}`);
+            logger.info(`Region: ${result.region}`);
+            logger.info(`IO count: ${result.ioCount}`);
+            logger.info(`Time cost: ${result.took} μs`);
           } else {
-            console.log(`IP: ${ip}`);
-            console.log('Region: Not found');
+            logger.info(`IP: ${ip}`);
+            logger.info('Region: Not found');
           }
         })
         .catch((err) => {
-          console.error('Search failed:', err.message);
+          logger.error('Search failed:', err.message);
           process.exit(1);
         });
     } catch (err: any) {
-      console.error('Failed to create searcher:', err.message);
+      logger.error('Failed to create searcher:', err.message);
       process.exit(1);
     }
   } else {

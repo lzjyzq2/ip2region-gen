@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises';
 import { createWriteStream } from 'fs';
 import iconv from 'iconv-lite';
 import { isMainModule } from './util.js';
+import { enableLogger, logger } from './logger.js';
 
 function readUInt24LE(buffer: Buffer, offset: number): number {
   return buffer[offset] + (buffer[offset + 1] << 8) + (buffer[offset + 2] << 16);
@@ -85,11 +86,11 @@ export async function parse_qqwry(datFile: string, outFile: string): Promise<voi
     }
 
     out.on('finish', () => {
-      console.log(`解析完成，结果输出到: ${outFile}`);
+      logger.info(`解析完成，结果输出到: ${outFile}`);
       resolve();
     });
     out.on('error', (err) => {
-      console.error('解析出错:', err);
+      logger.error('解析出错:', err);
       reject(err);
     });
 
@@ -125,6 +126,7 @@ function parseArgs() {
 }
 
 export async function main() {
+  enableLogger(true);
   const { datFile, outFile } = parseArgs();
   await parse_qqwry(datFile, outFile);
 }

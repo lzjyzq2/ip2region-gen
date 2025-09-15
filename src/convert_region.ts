@@ -4,6 +4,7 @@ import { createReadStream, createWriteStream } from 'fs';
 import os from 'os';
 import { defaultConvertRegionHandler } from './defaultConvertRegionHandler.js';
 import { isMainModule, getConfigHandler, ProcessChunkHandler } from './util.js';
+import { enableLogger, logger } from './logger.js';
 
 /**
  * 将大文件按行分割为多个小块，每块包含指定行数，方便并发处理。
@@ -122,7 +123,7 @@ export async function convert_region(
   // 4. 清理临时文件
   await Promise.all([...chunkPaths, ...results].map((f) => fs.unlink(f)));
 
-  console.log('转换完成，输出文件:', resultPath);
+  logger.info('转换完成，输出文件:', resultPath);
 }
 
 function print_help(): void {
@@ -134,6 +135,7 @@ function print_help(): void {
 }
 
 export async function main(): Promise<void> {
+  enableLogger(true)
   const argv = process.argv.slice(2);
   let inTxtPath: string | null = null;
   let resultPath: string | null = null;
