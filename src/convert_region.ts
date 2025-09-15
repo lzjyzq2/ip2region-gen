@@ -135,7 +135,7 @@ function print_help(): void {
 }
 
 export async function main(): Promise<void> {
-  enableLogger(true)
+  enableLogger(true);
   const argv = process.argv.slice(2);
   let inTxtPath: string | null = null;
   let resultPath: string | null = null;

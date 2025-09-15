@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/lzjyzq2/ip2region-gen/compare/v1.0.0...v1.1.0) (2025-09-15)
+
+
+### Features
+
+* support logger ([5471332](https://github.com/lzjyzq2/ip2region-gen/commit/54713325f7990e7c75f1ad70e7ea92b0fa1a19d8))
+
 # 1.0.0 (2025-09-13)
 
 

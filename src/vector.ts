@@ -1,6 +1,5 @@
 import { logger } from './logger.js';
 
-
 export const Vector_Index_Policy = 1;
 export const BTree_Index_Policy = 2;
 

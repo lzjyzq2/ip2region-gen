@@ -65,7 +65,7 @@ export class Logger {
     const timestamp = this.customFormat(new Date(), this.timeFormat);
     const prefix = this.prefix ? `[${this.prefix}] ` : '';
     const logMessage = `${timestamp} ${prefix}[${level}] ${message}`;
-    
+
     if (level === 'ERROR') {
       console.error(logMessage, ...args);
     } else if (level === 'WARN') {
@@ -97,7 +97,7 @@ export class Logger {
 
 // 创建默认logger实例
 export const logger = new Logger({
-  enabled: false
+  enabled: false,
 });
 
 // 全局配置logger是否启用

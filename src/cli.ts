@@ -18,7 +18,7 @@ function print_help() {
 }
 
 async function main() {
-  enableLogger(true)
+  enableLogger(true);
   if (process.argv.length < 3) {
     print_help();
     return;
